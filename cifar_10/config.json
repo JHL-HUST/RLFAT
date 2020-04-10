@@ -1,0 +1,26 @@
+{
+  "_comment": "===== MODEL CONFIGURATION =====",
+  "model_dir": "models/model_RLFAT_trades",
+
+
+  "_comment": "===== TRAINING CONFIGURATION =====",
+  "random_seed": 4557077,
+  "max_num_training_steps": 79800,
+  "num_output_steps": 300,
+  "num_summary_steps": 300,
+  "num_checkpoint_steps": 300,
+  "training_batch_size": 32,
+
+  "_comment": "===== EVAL CONFIGURATION =====",
+  "num_eval_examples": 10000,
+  "eval_batch_size": 50,
+  "eval_on_cpu": true,
+
+  "_comment": "=====ADVERSARIAL EXAMPLES CONFIGURATION=====",
+  "epsilon": 0.03,
+  "k": 10,
+  "a": 0.0075,
+  "random_start": true,
+  "loss_func": "xent",
+  "store_adv_path": "data/test.npy"
+}

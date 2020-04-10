@@ -1,7 +1,7 @@
 # RLFAT
 Code and models for **Robust Local Features for Improving the Generalization of Adversarial Training (RLFAT)** accepted by ICLR 2020.
 
-Please refer to https://drive.google.com/drive/folders/183Sb5q_RQbzeZkw-uQbpBd7S1yTnn-Au?usp=sharing
+For the files of models, please refer to https://drive.google.com/drive/folders/183Sb5q_RQbzeZkw-uQbpBd7S1yTnn-Au?usp=sharing
 
 #### REQUIREMENTS
 
