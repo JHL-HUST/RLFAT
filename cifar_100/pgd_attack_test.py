@@ -86,7 +86,7 @@ if __name__ == '__main__':
 
   saver = tf.train.Saver()
 
-  fashion_mnist = data_input.Data(one_hot=True)
+  raw_data = data_input.Data(one_hot=True)
 
   with tf.Session() as sess:
     # Restore the checkpoint
@@ -106,8 +106,8 @@ if __name__ == '__main__':
       bend = min(bstart + eval_batch_size, num_eval_examples)
       print('batch size: {}'.format(bend - bstart))
 
-      x_batch = fashion_mnist.eval_data.xs[bstart:bend, :]
-      y_batch = fashion_mnist.eval_data.ys[bstart:bend]
+      x_batch = raw_data.eval_data.xs[bstart:bend, :]
+      y_batch = raw_data.eval_data.ys[bstart:bend]
 
       x_batch_adv = attack.perturb(x_batch, y_batch, sess)
 
