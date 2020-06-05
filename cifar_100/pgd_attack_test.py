@@ -93,7 +93,7 @@ if __name__ == '__main__':
     saver.restore(sess, model_file)
 
     # Iterate over the samples batch-by-batch
-    num_eval_examples = fashion_mnist.eval_data.xs.shape[0]
+    num_eval_examples = raw_data.eval_data.xs.shape[0]
     eval_batch_size = config['eval_batch_size']
     num_batches = int(math.ceil(num_eval_examples / eval_batch_size))
 
