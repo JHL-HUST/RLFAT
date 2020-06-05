@@ -28,7 +28,7 @@ data_path = config['store_adv_path']
 
 def run_attack(checkpoint, x_adv, epsilon):
 
-  fashion_mnist = data_input.Data(one_hot=True)
+  raw_data = data_input.Data(one_hot=True)
 
   x_input = tf.placeholder(tf.float32, shape=[None, 32, 32, 3])
   y_input = tf.placeholder(tf.int64, shape=[None, 100])
@@ -43,7 +43,7 @@ def run_attack(checkpoint, x_adv, epsilon):
   num_batches = int(math.ceil(num_eval_examples / eval_batch_size))
   total_corr = 0
 
-  x_nat = fashion_mnist.eval_data.xs
+  x_nat = raw_data.eval_data.xs
   l_inf = np.amax(np.abs(x_nat - x_adv))
 
   if l_inf > epsilon + 0.0001:
@@ -63,7 +63,7 @@ def run_attack(checkpoint, x_adv, epsilon):
       bend = min(bstart + eval_batch_size, num_eval_examples)
 
       x_batch = x_adv[bstart:bend, :]
-      y_batch = fashion_mnist.eval_data.ys[bstart:bend]
+      y_batch = raw_data.eval_data.ys[bstart:bend]
 
       dict_adv = {model.x_input: x_batch,
                   model.y_input: y_batch}
